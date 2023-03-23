@@ -12,6 +12,7 @@ Used technologies/packages are:
 * Postman (mock api for login)
 * prettier (code formatting)
 * eslint (linter)
+* React testing library
 
 ## Links
 * [Figma](https://www.figma.com/file/bvYj30y0b85V2xNTPadlwn/FE6-Final-Project?node-id=0-1&t=iddD6kGbOBLMVQ17-0) file for the project
