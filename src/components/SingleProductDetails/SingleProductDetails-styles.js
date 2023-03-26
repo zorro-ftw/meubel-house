@@ -70,7 +70,7 @@ const StyledDiv = styled.div.attrs({ className: 'singleproduct__details' })`
   .singleproduct__divider {
     height: 1px;
     width: 100%;
-    margin-block: 61px 55px;
+    margin-block: 61px 0px;
     background-color: #d9d9d9;
   }
 

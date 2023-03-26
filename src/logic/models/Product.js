@@ -26,10 +26,4 @@ export default class Product {
     this.mainImagePath = mainImagePath;
     this.allImages = allImages;
   }
-
-  // Function for updating reviewScore per latest added review.
-  updateReviewScore() {}
-
-  // Function for updating reviews with latest review.
-  addReview(newReview) {}
 }

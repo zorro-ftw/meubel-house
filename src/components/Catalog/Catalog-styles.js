@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-const StyledDiv = styled.div`
+const StyledDiv = styled.div.attrs({ className: 'catalog' })`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-inline: 6.9444%;
+  padding-top: 55px;
 
   h2 {
     margin-top: 0px;
