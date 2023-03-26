@@ -43,7 +43,7 @@ const StyledDiv = styled.div`
   .side-cart {
     width: 100%;
     max-width: 417px;
-    height: 746px;
+    min-height: 746px;
     background-color: white;
     position: absolute;
     top: 0px;
@@ -139,6 +139,33 @@ const StyledDiv = styled.div`
       background-color: #d9d9d9;
       margin-top: 23px;
       margin-bottom: 26px;
+    }
+
+    .cart__lower {
+      width: 100%;
+      display: flex;
+      gap: 30px;
+      padding-left: 27px;
+      padding-bottom: 27px;
+
+      a {
+        min-height: 31px;
+        padding: 7px 36px;
+        border-radius: 20px;
+        border: 1px solid black;
+        text-decoration: none;
+        color: black;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        transition: all 0.2s ease-out;
+      }
+
+      a:hover {
+        background-color: rgba(245, 245, 245, 0.5);
+      }
     }
   }
 

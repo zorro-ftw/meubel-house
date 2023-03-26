@@ -69,7 +69,12 @@ function NavBar({ backgroundColor }) {
 
           </div>
           {context.currentState.cartProductList.length === 0 || <div className="cart__divider" />}
-          <div className="cart__lower" />
+          {context.currentState.cartProductList.length === 0 || (
+          <div className="cart__lower">
+            <Link to="/cart">View Cart</Link>
+            <Link to="/checkout">Checkout</Link>
+          </div>
+          )}
         </div>
       </StyledDiv>
     </>
