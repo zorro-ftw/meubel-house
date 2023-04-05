@@ -75,6 +75,7 @@ function NavBar({ backgroundColor }) {
             <Link to="/checkout">Checkout</Link>
           </div>
           )}
+
         </div>
       </StyledDiv>
     </>

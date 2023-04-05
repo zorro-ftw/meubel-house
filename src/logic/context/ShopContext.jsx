@@ -13,7 +13,7 @@ export function ShopProvider({ children }) {
     pageQty: 0,
     productsPerPage: 16,
     cartProductList: [], // List for keeping all the items added to cart
-    priceUnit: 'RS', // Selected price unit
+    priceUnit: 'Rs', // Selected price unit
     currentCartItemColor: null, // Used as selected color option for current product when it's added to cart.
     currentCartItemSize: null, // Used as selected size option for current product when it's added to cart.
     currentCartItemQty: 1, // Used as quantity for current product when it's added to cart.
@@ -130,6 +130,28 @@ export function ShopProvider({ children }) {
     setCurrentState(newState);
   };
 
+  // Used to remove a CartItem from the cartProductList
+  const removeCartItem = (cartItem) => {
+    const newState = { ...currentState };
+    const searchCurrentList = newState.cartProductList.findIndex((itm) => itm.product.sku === cartItem.product.sku);
+
+    if (searchCurrentList > -1) {
+      newState.cartProductList.splice(searchCurrentList, 1);
+      newState.currentCartSubtotal -= (cartItem.quantity * cartItem.product.price);
+    }
+
+    setCurrentState(newState);
+  };
+
+  // Used to update current quantity of the product from Cart page.
+  const updateQtyInCart = (cartItem, newQty) => {
+    const newState = { ...currentState };
+    const index = newState.cartProductList.findIndex((item) => item.product.sku === cartItem.product.sku);
+    newState.currentCartSubtotal += cartItem.product.price * (newQty - cartItem.quantity);
+    newState.cartProductList[index].quantity = newQty;
+    setCurrentState(newState);
+  };
+
   // Used to add a CartItem to the cartProductList with current size & color options.
   const addToCart = (product) => {
     const addedItem = new CartItem(
@@ -155,19 +177,6 @@ export function ShopProvider({ children }) {
     setCurrentState(newState);
   };
 
-  // Used to remove a CartItem from the cartProductList
-  const removeCartItem = (cartItem) => {
-    const newState = { ...currentState };
-    const searchCurrentList = newState.cartProductList.findIndex((itm) => itm.product.sku === cartItem.product.sku);
-
-    if (searchCurrentList > -1) {
-      newState.cartProductList.splice(searchCurrentList, 1);
-      newState.currentCartSubtotal -= (cartItem.quantity * cartItem.product.price);
-    }
-
-    setCurrentState(newState);
-  };
-
   return (
     <ShopContext.Provider
       value={{
@@ -181,6 +190,7 @@ export function ShopProvider({ children }) {
         updateCartQuantity,
         addToCart,
         removeCartItem,
+        updateQtyInCart,
       }}
     >
       {children}

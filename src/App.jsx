@@ -6,6 +6,8 @@ import { BlogProvider } from './logic/context/BlogContext';
 import { ShopProvider } from './logic/context/ShopContext';
 import About from './pages/About/About';
 import Blog from './pages/Blog/Blog';
+import Cart from './pages/Cart/Cart';
+import Checkout from './pages/Checkout/Checkout';
 import Contact from './pages/Contact/Contact';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
@@ -26,6 +28,8 @@ export default function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
               <Route
                 path="/my-account"
                 element={(
